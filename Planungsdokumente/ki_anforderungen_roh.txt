@@ -1,0 +1,21 @@
+1.Benutzer können sich mit einem Benutzernamen und Passwort anmelden.
+
+2.Das System ermöglicht die Suche nach Büchern nach Titel, Autor oder ISBN.
+
+3.Schüler und Lehrer können Bücher ausleihen.
+
+4.Bücher können zurückgegeben und der Bestand automatisch aktualisiert werden.
+
+5.Bibliothekare können neue Bücher hinzufügen oder vorhandene löschen.
+
+6.Das System zeigt an, welche Bücher ausgeliehen sind und von wem.
+
+7.Überfällige Bücher werden automatisch erkannt und Mahnungen generiert.
+
+8.Es gibt eine Historie der Ausleihen für jeden Nutzer.
+
+9.Benutzer können ihr Profil ansehen und ändern (z. B. Passwort ändern).
+
+10.Das System erzeugt Berichte über ausgeliehene und verfügbare Bücher.
+
+11.(Optional) Benutzer können eine Reservierung für aktuell ausgeliehene Bücher vornehmen.

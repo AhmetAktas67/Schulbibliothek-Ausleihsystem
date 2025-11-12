@@ -1,0 +1,6 @@
+Funktionale Anforderung	                                           Begründung	                                                Aufwand (Stunden)
+1. Anmeldung mit Benutzername und Passwort	                   Sicherheitsfunktion, ermöglicht personalisierte Ausleihen	         8
+2. Bücher suchen nach Titel, Autor, ISBN	                   Grundfunktion, ohne Suche keine Übersicht	                        10
+3. Ausleihe und Rückgabe von Büchern	                           Kernfunktion des Systems	                                        12
+4. Verwaltung des Bestands (hinzufügen/löschen von Büchern)	   Bibliothekare benötigen diese Funktion zur Bestandspflege	        10
+5. Automatische Mahnungen für überfällige Bücher	           Wichtig für Ordnung und Kontrolle	                                 6
