@@ -1,0 +1,18 @@
+# Visual Studio 
+.vs/ 
+bin/ 
+obj/ 
+
+# Build-Ausgabe
+*.exe 
+*.dll 
+*.pdb 
+
+# User-spezifische Dateien 
+*.suo 
+*.user 
+*.userosscache 
+*.sln.docstates 
+
+# Cache 
+*.db
