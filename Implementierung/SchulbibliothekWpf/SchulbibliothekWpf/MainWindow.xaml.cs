@@ -32,7 +32,13 @@ namespace SchulbibliothekWpf
         {
             BuchHinzufügen Fenster = new BuchHinzufügen();
             Fenster.Owner=this;
-            Fenster.Show();
+
+            bool? result = Fenster.ShowDialog();
+
+            if (result == true) 
+            {
+                DataContext = new MainWindowViewModel();
+            }
         }
 
        

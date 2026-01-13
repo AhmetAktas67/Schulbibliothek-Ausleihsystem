@@ -53,9 +53,11 @@ namespace SchulbibliothekWpf.Views
                 db.SaveChanges();
             }
 
-           
-
+           this.DialogResult=true; 
+            
             this.Close();
+
+            
 
         }
     }
