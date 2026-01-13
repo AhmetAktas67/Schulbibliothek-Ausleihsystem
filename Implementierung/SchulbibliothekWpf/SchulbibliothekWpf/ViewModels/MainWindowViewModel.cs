@@ -13,6 +13,7 @@ namespace SchulbibliothekWpf.ViewModels
     { 
        public ObservableCollection<BuchAnzeige> Buecher {  get; } = new ObservableCollection<BuchAnzeige>();
 
+        public BuchAnzeige? SelectedBuch { get; set; }
         public MainWindowViewModel() 
         {
             using var db = new BibliothekContext();
@@ -21,6 +22,8 @@ namespace SchulbibliothekWpf.ViewModels
             {
                 Buecher.Add(new BuchAnzeige
                 {
+
+                    BuchID = b.BuchID,
                     Titel = b.Titel,
                     Autor = b.Autor,
                     ISBN = b.ISBN,

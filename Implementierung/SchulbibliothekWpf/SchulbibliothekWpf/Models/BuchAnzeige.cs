@@ -8,6 +8,7 @@ namespace SchulbibliothekWpf.Models
 {
     public class BuchAnzeige
     {
+        public int BuchID { get; set; }
         public string Titel { get; set; } = "";
         public string Autor { get; set; } = "";
         public string ISBN { get; set; } = "";

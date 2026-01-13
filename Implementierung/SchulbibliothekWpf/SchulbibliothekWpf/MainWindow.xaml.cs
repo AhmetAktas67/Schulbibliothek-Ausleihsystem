@@ -9,6 +9,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SchulbibliothekWpf;
+using SchulbibliothekWpf.Views;
+using SchulbibliothekWpf.Data;
 
 
 namespace SchulbibliothekWpf
@@ -25,6 +28,51 @@ namespace SchulbibliothekWpf
 
         }
 
+        private void Buch_Hinzufügen(object sender, RoutedEventArgs e)
+        {
+            BuchHinzufügen Fenster = new BuchHinzufügen();
+            Fenster.Owner=this;
+            Fenster.Show();
+        }
+
        
+        
+        private void Buch_Löschen(object sender, RoutedEventArgs e)
+        {
+           var vm =  DataContext as MainWindowViewModel;
+
+            if (vm == null || vm.SelectedBuch ==  null) 
+            {
+                MessageBox.Show("Bitte zuerst ein Buch auswählen.");
+                return;
+            }
+
+
+
+            var result = MessageBox.Show(
+           $"Möchten Sie das Buch \"{vm.SelectedBuch.Titel}\" wirklich löschen?",
+           "Buch löschen",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+
+
+            using (var db = new BibliothekContext())
+            {
+                var buch = db.Buecher.Find(vm.SelectedBuch.BuchID);
+
+                if (buch != null)
+                {
+                    db.Buecher.Remove(buch);
+                    db.SaveChanges();
+                }
+
+                DataContext= new MainWindowViewModel();
+
+            }
+        }
     }
 }

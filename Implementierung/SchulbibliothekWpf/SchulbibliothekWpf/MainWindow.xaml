@@ -53,8 +53,8 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                <Button Margin="0,0,20,0" Height="25" Width="120"  Content="Buch +" ></Button>
-                <Button Margin="0,0,40,0"  Height="25" Width="120"  Content="Buch -" ></Button>
+                <Button Margin="0,0,20,0" Height="25" Width="120" Click="Buch_Hinzufügen"  Content="Buch +" ></Button>
+                <Button Margin="0,0,40,0"  Height="25" Width="120" Click="Buch_Löschen"  Content="Buch -" ></Button>
             </StackPanel>
             
 
@@ -74,6 +74,7 @@
         <!-- INHALT Datagrid Tabelle -->
         <Grid Grid.Row="1" Margin="10">
             <DataGrid ItemsSource="{Binding Buecher}"
+                      SelectedItem="{Binding SelectedBuch}"
                       AutoGenerateColumns="True"
                       IsReadOnly="True"/>
         </Grid>
