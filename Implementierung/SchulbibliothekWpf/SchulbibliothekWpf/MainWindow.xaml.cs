@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using SchulbibliothekWpf;
 using SchulbibliothekWpf.Views;
 using SchulbibliothekWpf.Data;
+using SchulbibliothekWpf.Models;
 
 
 namespace SchulbibliothekWpf
@@ -77,6 +78,50 @@ namespace SchulbibliothekWpf
                 }
 
                 DataContext= new MainWindowViewModel();
+
+            }
+        }
+
+        private void Suchen_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as MainWindowViewModel;
+
+
+            if (string.IsNullOrWhiteSpace(SucheTextbox.Text))
+            {
+                DataContext = new MainWindowViewModel();
+            }
+           
+            string suchtext = SucheTextbox.Text.ToLower();
+
+            
+            using (var db = new BibliothekContext())
+            {
+                var gefiltertebuecher =db.Buecher.Where
+                    (b=>
+                    b.Titel.ToLower().Contains(suchtext) ||
+                    b.ISBN.ToLower().Contains(suchtext))
+                    
+                    .Select(b => new BuchAnzeige
+                    {
+                      BuchID = b.BuchID,
+                      Titel = b.Titel,
+                      ISBN = b.ISBN,
+                      Autor = b.Autor,
+                      Erscheinungsjahr = b.Erscheinungsjahr
+                    })
+                    .ToList();
+
+
+               
+
+                vm.Buecher.Clear();
+
+               
+                foreach (var buch in gefiltertebuecher)
+                {
+                    vm.Buecher.Add(buch);
+                }
 
             }
         }
