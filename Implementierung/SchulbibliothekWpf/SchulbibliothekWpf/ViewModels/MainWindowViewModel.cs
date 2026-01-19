@@ -29,7 +29,7 @@ namespace SchulbibliothekWpf.ViewModels
                     ISBN = b.ISBN,
                     Erscheinungsjahr = b.Erscheinungsjahr,
 
-                     AktuellerStand = "Verfügbar",
+                    AktuellerStand = b.IstAusgeliehen ? "Ausgeliehen" : "Verfügbar",
                     Nutzername = "-"
                 });
             }

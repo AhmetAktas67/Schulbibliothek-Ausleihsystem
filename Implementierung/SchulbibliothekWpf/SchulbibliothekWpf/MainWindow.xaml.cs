@@ -82,6 +82,8 @@ namespace SchulbibliothekWpf
             }
         }
 
+        
+        
         private void Suchen_Click(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as MainWindowViewModel;
@@ -124,6 +126,68 @@ namespace SchulbibliothekWpf
                 }
 
             }
+        }
+
+       
+        private void Ausleihen_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as MainWindowViewModel;
+            if (vm == null || vm.SelectedBuch == null) 
+            {
+                MessageBox.Show("Bitte zuerst ein Buch auswählen.");
+                return;
+            }
+
+            if (vm.SelectedBuch.AktuellerStand == "Ausgeliehen")
+            {
+                MessageBox.Show("Dieses Buch ist bereits ausgeliehen.");
+                return;
+            }
+
+            using (var db = new BibliothekContext())
+            {
+                var buch = db.Buecher.Find(vm.SelectedBuch.BuchID);
+
+                if (buch != null)
+                {
+                    buch.IstAusgeliehen = true;
+                    db.SaveChanges();
+                }
+            }
+
+            DataContext = new MainWindowViewModel();
+
+        }
+
+        private void Zurückgeben_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as MainWindowViewModel;
+            if (vm == null || vm.SelectedBuch == null)
+            {
+                MessageBox.Show("Bitte zuerst ein Buch auswählen.");
+                return;
+            }
+
+            if (vm.SelectedBuch.AktuellerStand == "Verfügbar")
+            {
+                MessageBox.Show("Dieses Buch ist nicht ausgeliehen.");
+                return;
+            }
+
+
+            using (var db = new BibliothekContext())
+            {
+                var buch = db.Buecher.Find(vm.SelectedBuch.BuchID);
+
+                if (buch != null)
+                {
+                    buch.IstAusgeliehen = false;
+                    db.SaveChanges();
+                }
+            }
+
+            DataContext = new MainWindowViewModel();
+
         }
     }
 }

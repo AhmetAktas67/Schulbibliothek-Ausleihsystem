@@ -14,7 +14,7 @@ namespace SchulbibliothekWpf.Models
         public string ISBN { get; set; } = "";
         public int Erscheinungsjahr { get; set; }
 
-        public string AktuellerStand { get; set; } = "";
+        public string AktuellerStand { get; set; } 
         public string Nutzername { get; set; } = "";
     }
 }

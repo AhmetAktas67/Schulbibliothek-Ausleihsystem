@@ -14,6 +14,8 @@ namespace SchulbibliothekWpf.Models
         public string ISBN { get; set; } = "";
         public int Erscheinungsjahr { get; set; }
 
+        public bool IstAusgeliehen { get; set; }
+
 
         public ICollection<Ausleihe> Ausleihen { get; set; } = new List<Ausleihe>();
     }
