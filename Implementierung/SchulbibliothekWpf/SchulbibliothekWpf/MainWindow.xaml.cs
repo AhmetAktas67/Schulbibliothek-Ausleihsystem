@@ -151,6 +151,16 @@ namespace SchulbibliothekWpf
                 if (buch != null)
                 {
                     buch.IstAusgeliehen = true;
+
+
+                    db.Ausleihen.Add(new Ausleihe
+                    {
+                        BuchID =buch.BuchID,
+                        BenutzerID=1,
+                        DatumAusleihe=DateTime.Now,
+                    });
+
+
                     db.SaveChanges();
                 }
             }
@@ -182,11 +192,36 @@ namespace SchulbibliothekWpf
                 if (buch != null)
                 {
                     buch.IstAusgeliehen = false;
+
+                    var ausleihe = db.Ausleihen
+                   .Where(a => a.BuchID == buch.BuchID && a.DatumRueckgabe == null)
+                   .FirstOrDefault();
+
+                    if (ausleihe != null)
+                    {
+                        ausleihe.DatumRueckgabe = DateTime.Now;
+                    }
+
+
+
+
                     db.SaveChanges();
                 }
             }
 
             DataContext = new MainWindowViewModel();
+
+        }
+
+        private void HistorieButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+                HistorieFenster Fenster = new HistorieFenster();
+                 Fenster.Owner = this;
+
+            bool? result = Fenster.ShowDialog();
+
+           
 
         }
     }

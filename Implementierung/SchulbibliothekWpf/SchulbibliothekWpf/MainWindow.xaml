@@ -41,7 +41,14 @@
 
             <Label   Content="Bücher" FontWeight="Bold"></Label>
 
-
+            <StackPanel Grid.Row="1">
+                
+                <Button HorizontalAlignment="Left" Height="40"  Width="50" x:Name="HistorieButton" Click="HistorieButton_Click" Content="Historie"></Button>
+                
+            </StackPanel>
+           
+            
+            
             <StackPanel  Grid.Row="2" Orientation="Horizontal">
                
 
