@@ -26,7 +26,7 @@ namespace SchulbibliothekWpf
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-
+            PruefeMahnungen();
         }
 
         private void Buch_Hinzufügen(object sender, RoutedEventArgs e)
@@ -160,8 +160,18 @@ namespace SchulbibliothekWpf
                         DatumAusleihe=DateTime.Now,
                     });
 
+                    // Mahnung Test
+                   /*
+                    db.Ausleihen.Add(new Ausleihe
+                    {
+                        BuchID = buch.BuchID,
+                        BenutzerID = 1, 
+                        DatumAusleihe = DateTime.Now.AddDays(-20) 
+                    });
+                   */
 
                     db.SaveChanges();
+                    PruefeMahnungen();
                 }
             }
 
@@ -206,6 +216,7 @@ namespace SchulbibliothekWpf
 
 
                     db.SaveChanges();
+                    PruefeMahnungen();
                 }
             }
 
@@ -224,5 +235,28 @@ namespace SchulbibliothekWpf
            
 
         }
+
+        private void MahnungenButton_Click(object sender, RoutedEventArgs e)
+        {
+            MahnungenFenster fenster = new MahnungenFenster();
+            fenster.Owner = this;
+            fenster.ShowDialog();
+        }
+
+        private void PruefeMahnungen()
+        {
+            using (var db = new BibliothekContext())
+            {
+                bool gibtMahnungen = db.Ausleihen.Any(a =>
+                    a.DatumRueckgabe == null &&
+                    a.DatumAusleihe.AddDays(14) < DateTime.Now);
+
+                MahnungenButton.Visibility = gibtMahnungen
+                    ? Visibility.Visible
+                    : Visibility.Collapsed;
+            }
+        }
+
+
     }
 }
