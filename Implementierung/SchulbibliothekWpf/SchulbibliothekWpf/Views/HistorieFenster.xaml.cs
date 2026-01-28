@@ -43,9 +43,34 @@ namespace SchulbibliothekWpf.Views
 
         private void Button_Suche_Click(object sender, RoutedEventArgs e)
         {
-            // suche wird noch erstellt
-        }
+            if (string.IsNullOrWhiteSpace(SucheTextbox.Text))
+            {
+                LadeAusleihen();
+                return;
+            }
 
-    } 
+            string suchtext = SucheTextbox.Text.ToLower();
+
+            using (var db = new BibliothekContext())
+            {
+                var gefilterteAusleihen = db.Ausleihen
+                    .Include(a => a.Buch)
+                    .Include(a => a.Benutzer)
+                    .Where(a =>
+                        a.Buch.Titel.ToLower().Contains(suchtext) ||
+                        a.Benutzer.Vorname.ToLower().Contains(suchtext)
+                    )
+                    .ToList();
+
+                Ausleihen.Clear();
+
+                foreach (var ausleihe in gefilterteAusleihen)
+                {
+                    Ausleihen.Add(ausleihe);
+                }
+            }
+        }
+    }
+ } 
     
-}
+
