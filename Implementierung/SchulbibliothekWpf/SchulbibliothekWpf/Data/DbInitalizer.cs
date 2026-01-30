@@ -18,11 +18,11 @@ namespace SchulbibliothekWpf.Data
             if (!db.Benutzer.Any())
             {
                 db.Benutzer.AddRange(
-                    new Benutzer { Vorname = "Max", Nachname = "Mustermann", Email = "max@schule.de", Rolle = "Schüler" },
-                    new Benutzer { Vorname = "Anna", Nachname = "Müller", Email = "anna@schule.de", Rolle = "Schüler" },
-                    new Benutzer { Vorname = "Lena", Nachname = "Schmidt", Email = "lena@schule.de", Rolle = "Lehrer" },
-                    new Benutzer { Vorname = "Tim", Nachname = "Wagner", Email = "tim@schule.de", Rolle = "Lehrer" },
-                    new Benutzer { Vorname = "Sarah", Nachname = "Becker", Email = "becker@schule.de", Rolle = "Bibliothekar" }
+                    new Benutzer { Vorname = "Max", Nachname = "Mustermann", Email = "max@schule.de", Rolle = "Schüler",PasswortHash=PasswordHelfer.Hash("1234") },
+                    new Benutzer { Vorname = "Anna", Nachname = "Müller", Email = "anna@schule.de", Rolle = "Schüler", PasswortHash = PasswordHelfer.Hash("1235") },
+                    new Benutzer { Vorname = "Lena", Nachname = "Schmidt", Email = "lena@schule.de", Rolle = "Bibliothekar", PasswortHash = PasswordHelfer.Hash("1236") },
+                    new Benutzer { Vorname = "Tim", Nachname = "Wagner", Email = "tim@schule.de", Rolle = "Bibliothekar", PasswortHash = PasswordHelfer.Hash("1237") },
+                    new Benutzer { Vorname = "Sarah", Nachname = "Becker", Email = "becker@schule.de", Rolle = "Bibliothekar", PasswortHash = PasswordHelfer.Hash("1238") }
                 );
             }
 
@@ -37,7 +37,9 @@ namespace SchulbibliothekWpf.Data
                 );
             }
 
-            db.SaveChanges();
+           
+
+                db.SaveChanges();
         }
     }
 

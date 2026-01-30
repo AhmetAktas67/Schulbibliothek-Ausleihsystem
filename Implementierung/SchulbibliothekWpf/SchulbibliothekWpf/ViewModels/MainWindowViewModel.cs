@@ -18,8 +18,17 @@ namespace SchulbibliothekWpf.ViewModels
         {
             using var db = new BibliothekContext();
 
+           
+
             foreach (var b in db.Buecher)
             {
+
+                var ausleihe = db.Ausleihen
+                  .Where(a => a.BuchID == b.BuchID && a.DatumRueckgabe == null)
+                  .Select(a => a.Benutzer.Vorname + " " + a.Benutzer.Nachname)
+                  .FirstOrDefault();
+
+
                 Buecher.Add(new BuchAnzeige
                 {
 
@@ -30,7 +39,7 @@ namespace SchulbibliothekWpf.ViewModels
                     Erscheinungsjahr = b.Erscheinungsjahr,
 
                     AktuellerStand = b.IstAusgeliehen ? "Ausgeliehen" : "Verfügbar",
-                    Nutzername = "-"
+                    Nutzername = ausleihe ?? "-"
                 });
             }
         }

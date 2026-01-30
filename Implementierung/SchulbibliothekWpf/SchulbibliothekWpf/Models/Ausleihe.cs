@@ -17,6 +17,18 @@ namespace SchulbibliothekWpf.Models
         public Benutzer? Benutzer { get; set; }
         public Buch? Buch { get; set; }
 
+
+        public string Nutzername
+        {
+            get
+            {
+                if (Benutzer == null)
+                    return "-";
+
+                return $"{Benutzer.Vorname} {Benutzer.Nachname}";
+            }
+        }
+
         public int TageImVerzug
         {
             get

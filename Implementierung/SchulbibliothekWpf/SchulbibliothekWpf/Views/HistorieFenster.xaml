@@ -82,6 +82,9 @@
                  Binding="{Binding Buch.Erscheinungsjahr}"
                  Width="150"/>
 
+                <DataGridTextColumn Header="Nutzer"
+                    Binding="{Binding Nutzername}"
+                    Width="200"/>
 
 
                 <!-- Daten -->
