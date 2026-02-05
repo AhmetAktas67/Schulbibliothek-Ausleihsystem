@@ -45,7 +45,13 @@
                 
                 <Button  Height="40"  Width="50" x:Name="HistorieButton" Click="HistorieButton_Click" Content="Historie"></Button>
                 <Button  Margin="40,0,0,0" Height="40" Width="200" Content="Mahnungen" Name="MahnungenButton" Click="MahnungenButton_Click" Visibility="Collapsed"></Button>
-                
+
+                <Button x:Name="LogoutButton"
+                    Content="Ausloggen"
+                    Click="LogoutButton_Click"
+                    
+                    Margin="5"/>    
+
             </StackPanel>
            
             

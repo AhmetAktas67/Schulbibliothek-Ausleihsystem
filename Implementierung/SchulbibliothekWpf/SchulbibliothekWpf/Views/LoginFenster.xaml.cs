@@ -22,7 +22,7 @@ namespace SchulbibliothekWpf.Views
     public partial class LoginFenster : Window
     {
 
-        public static Benutzer? AktuellerBenutzer { get; private set; }
+        public static Benutzer? AktuellerBenutzer { get; set; }
 
         public LoginFenster()
         {

@@ -272,5 +272,35 @@ namespace SchulbibliothekWpf
         }
 
 
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+            LoginFenster.AktuellerBenutzer = null;
+
+            
+            this.Close();
+
+            
+            var login = new LoginFenster();
+            bool? result = login.ShowDialog();
+
+            if (result == true)
+            {
+              
+                var main = new MainWindow();
+                main.Show();
+            }
+            else
+            {
+                
+                Application.Current.Shutdown();
+            }
+        }
+
+
+
+
+
     }
 }
