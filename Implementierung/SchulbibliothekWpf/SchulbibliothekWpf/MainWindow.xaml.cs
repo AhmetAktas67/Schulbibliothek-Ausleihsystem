@@ -25,6 +25,15 @@ namespace SchulbibliothekWpf
         public MainWindow()
         {
             InitializeComponent();
+           
+            var user = LoginFenster.AktuellerBenutzer;
+
+            if (user != null && user.Rolle == "Schüler" || user.Rolle == "Lehrer")
+            {
+                BuchHinzufügenButton.Visibility = Visibility.Collapsed;
+                BuchLöschenButton.Visibility = Visibility.Collapsed;
+            }
+
             DataContext = new MainWindowViewModel();
             PruefeMahnungen();
         }
@@ -144,20 +153,25 @@ namespace SchulbibliothekWpf
                 return;
             }
 
+
+            var aktuellerBenutzer = LoginFenster.AktuellerBenutzer;
+
             using (var db = new BibliothekContext())
             {
                 var buch = db.Buecher.Find(vm.SelectedBuch.BuchID);
 
                 if (buch != null)
                 {
+                    
+                    
                     buch.IstAusgeliehen = true;
 
 
                     db.Ausleihen.Add(new Ausleihe
                     {
                         BuchID =buch.BuchID,
-                        BenutzerID=1,
-                        DatumAusleihe=DateTime.Now,
+                        BenutzerID= aktuellerBenutzer.BenutzerID,
+                        DatumAusleihe =DateTime.Now,
                     });
 
                     // Mahnung Test

@@ -19,6 +19,7 @@ namespace SchulbibliothekWpf.Views
         public HistorieFenster()
         {
             InitializeComponent();
+
             DataContext = this;   // wichtig für Binding
             LadeAusleihen();
         }
@@ -33,6 +34,8 @@ namespace SchulbibliothekWpf.Views
                               .Include(a => a.Buch)
                               .Include(a => a.Benutzer)
                               .ToList();
+
+               
 
                 foreach (var a in liste)
                 {

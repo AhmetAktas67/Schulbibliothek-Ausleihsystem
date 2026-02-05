@@ -61,8 +61,8 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                <Button Margin="0,0,20,0" Height="25" Width="120" Click="Buch_Hinzufügen"  Content="Buch +" ></Button>
-                <Button Margin="0,0,40,0"  Height="25" Width="120" Click="Buch_Löschen"  Content="Buch -" ></Button>
+                <Button Margin="0,0,20,0" Height="25" Width="120" Click="Buch_Hinzufügen" Name="BuchHinzufügenButton"  Content="Buch +" ></Button>
+                <Button Margin="0,0,40,0"  Height="25" Width="120" Click="Buch_Löschen" Name="BuchLöschenButton"  Content="Buch -" ></Button>
             </StackPanel>
             
 

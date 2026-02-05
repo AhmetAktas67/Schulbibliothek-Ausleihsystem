@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using SchulbibliothekWpf.Models;
 
 namespace SchulbibliothekWpf.Views
 {
@@ -21,9 +21,14 @@ namespace SchulbibliothekWpf.Views
     /// </summary>
     public partial class LoginFenster : Window
     {
+
+        public static Benutzer? AktuellerBenutzer { get; private set; }
+
         public LoginFenster()
         {
             InitializeComponent();
+
+
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -42,7 +47,7 @@ namespace SchulbibliothekWpf.Views
                     return;
                 }
 
-                
+                AktuellerBenutzer = benutzer;
 
                 DialogResult = true;
                 Close();
