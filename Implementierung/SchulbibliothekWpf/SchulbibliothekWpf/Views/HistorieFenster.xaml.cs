@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace SchulbibliothekWpf.Views
@@ -33,9 +34,15 @@ namespace SchulbibliothekWpf.Views
                 var liste = db.Ausleihen
                               .Include(a => a.Buch)
                               .Include(a => a.Benutzer)
-                              .ToList();
+                              .AsQueryable();
 
-               
+                if (LoginFenster.AktuellerBenutzer.Rolle != "Bibliothekar")
+                {
+                    int benutzerId = LoginFenster.AktuellerBenutzer.BenutzerID;
+                    liste = liste.Where(a => a.BenutzerID == benutzerId);
+                }
+
+
 
                 foreach (var a in liste)
                 {
@@ -64,6 +71,14 @@ namespace SchulbibliothekWpf.Views
                         a.Benutzer.Vorname.ToLower().Contains(suchtext)
                     )
                     .ToList();
+
+                if (LoginFenster.AktuellerBenutzer.Rolle != "Bibliothekar")
+                {
+                    int benutzerId = LoginFenster.AktuellerBenutzer.BenutzerID;
+                    gefilterteAusleihen = gefilterteAusleihen
+                        .Where(a => a.BenutzerID == benutzerId)
+                        .ToList();
+                }
 
                 Ausleihen.Clear();
 
