@@ -7,39 +7,58 @@
         mc:Ignorable="d"
         Title="LoginFenster" Height="450" Width="800">
 
+
+    <Window.Resources>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="Margin" Value="0,5,0,10"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style TargetType="PasswordBox">
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="Margin" Value="0,5,0,15"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#2D6CDF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+    </Window.Resources>
+
+    <!-- ===== INHALT ===== -->
     <Grid>
         <Border Background="White"
-                CornerRadius="8"
-                Padding="20"
-                Width="550"
-                Height="300"
+                CornerRadius="10"
+                Padding="25"
+                Width="420"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center">
 
             <StackPanel>
 
-                <TextBlock Text="Anmeldung"
-                           FontSize="20"
+                <TextBlock Text="📚 Schulbibliothek"
+                           FontSize="22"
                            FontWeight="Bold"
-                           Margin="0,0,0,20"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
 
                 <TextBlock Text="E-Mail"/>
-                
-                <TextBox x:Name="EmailBox"
-                         Height="28"
-                         Margin="0,5,0,10"/>
+                <TextBox x:Name="EmailBox"/>
 
                 <TextBlock Text="Passwort"/>
-                
-                <PasswordBox x:Name="PasswortBox"
-                             Height="28"
-                             Margin="0,5,0,15"/>
+                <PasswordBox x:Name="PasswortBox"/>
 
                 <Button Content="Anmelden"
-                        Height="32"
-                      
-                        FontWeight="Bold"
+                        Height="36"
                         Click="LoginButton_Click"/>
 
             </StackPanel>

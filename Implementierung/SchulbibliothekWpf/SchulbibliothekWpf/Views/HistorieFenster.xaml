@@ -6,6 +6,51 @@
         xmlns:local="clr-namespace:SchulbibliothekWpf.Views"
         mc:Ignorable="d"
         Title="HistorieFenster" Height="450" Width="1000">
+
+
+
+    <Window.Resources>
+
+        
+        <SolidColorBrush x:Key="HeaderBg" Color="#F2F4F8"/>
+
+      
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+       
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#2D6CDF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+       
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+        </Style>
+
+       
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="RowBackground" Value="#FAFAFA"/>
+            <Setter Property="AlternatingRowBackground" Value="#EFEFEF"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+        </Style>
+
+    </Window.Resources>
+
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -22,7 +67,7 @@
 
         <!-- Obere Leiste -->
 
-        <Grid>
+        <Grid Background="#F2F4F8"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -32,8 +77,8 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
 
 
             </Grid.RowDefinitions>
@@ -41,7 +86,7 @@
             <Label   Content="Historie" FontWeight="Bold"></Label>
 
 
-            <StackPanel  Grid.Row="2" Orientation="Horizontal">
+            <StackPanel  Grid.Row="1" Orientation="Horizontal">
 
 
 
@@ -62,6 +107,19 @@
           ItemsSource="{Binding Ausleihen}"
           AutoGenerateColumns="False"
           IsReadOnly="True">
+
+
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding TageImVerzug}" Value="1">
+                            <Setter Property="Background" Value="#FFFFD6D6"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
 
             <DataGrid.Columns>
 

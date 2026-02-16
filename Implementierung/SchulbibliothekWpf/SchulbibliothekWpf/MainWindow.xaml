@@ -5,7 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchulbibliothekWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="850">
+     
+        Title="MainWindow" Height="800" Width="1500">
+
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#2D6CDF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="RowBackground" Value="#F7F7F7"/>
+            <Setter Property="AlternatingRowBackground" Value="#EDEDED"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+        </Style>
+
+    </Window.Resources>
+
+
+
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,67 +54,76 @@
 
         <!-- Obere Leiste -->
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                
-                
-            </Grid.ColumnDefinitions>
-
+        <Grid Background="#F2F4F8" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-
-
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label   Content="Bücher" FontWeight="Bold"></Label>
+            <!-- Titel + Aktionen -->
+            <DockPanel Grid.Row="0">
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1">
-                
-                <Button  Height="40"  Width="50" x:Name="HistorieButton" Click="HistorieButton_Click" Content="Historie"></Button>
-                <Button  Margin="40,0,0,0" Height="40" Width="200" Content="Mahnungen" Name="MahnungenButton" Click="MahnungenButton_Click" Visibility="Collapsed"></Button>
+                <Label Content="📚 Schulbibliothek"
+               FontSize="22"
+               FontWeight="Bold"
+               DockPanel.Dock="Left"/>
 
-                <Button x:Name="LogoutButton"
-                    Content="Ausloggen"
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                    <Button x:Name="HistorieButton"
+                    Click="HistorieButton_Click"
+                    Content="Historie"/>
+
+                    <Button x:Name="MahnungenButton"
+                    Click="MahnungenButton_Click"
+                    Content="Mahnungen"
+                    Visibility="Collapsed"/>
+
+                    <Button x:Name="LogoutButton"
                     Click="LogoutButton_Click"
-                    
-                    Margin="5"/>    
+                    Content="Ausloggen"/>
+                </StackPanel>
+            </DockPanel>
 
-            </StackPanel>
-           
-            
-            
-            <StackPanel  Grid.Row="2" Orientation="Horizontal">
-               
+            <!-- Suche + Verwaltung -->
+            <Grid Grid.Row="1" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="SucheTextbox" Width="180"/>
+                    <Button x:Name="Button_Suche"
+                    Click="Suchen_Click"
+                    Content="Suchen"/>
+                </StackPanel>
 
-                <TextBox Height="20" Width="150" Grid.Row="1" x:Name="SucheTextbox"></TextBox>
-                <Button Margin="10,0,0,0" Height="20" Width="120" x:Name="Button_Suche" Click="Suchen_Click"  Content="Suchen"  ></Button>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button x:Name="BuchHinzufügenButton"
+                    Click="Buch_Hinzufügen"
+                    Content="Buch +"/>
 
-                
-            </StackPanel>
-
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                <Button Margin="0,0,20,0" Height="25" Width="120" Click="Buch_Hinzufügen" Name="BuchHinzufügenButton"  Content="Buch +" ></Button>
-                <Button Margin="0,0,40,0"  Height="25" Width="120" Click="Buch_Löschen" Name="BuchLöschenButton"  Content="Buch -" ></Button>
-            </StackPanel>
-            
-
-
+                    <Button x:Name="BuchLöschenButton"
+                    Click="Buch_Löschen"
+                    Content="Buch -"/>
+                </StackPanel>
+            </Grid>
         </Grid>
 
         <!-- Rechts Leiste -->
-        <Grid Grid.Row="1" Grid.Column="2">
-            <StackPanel Orientation="vertical" Height="80">
-                <Button x:Name="Ausleihen_Button" Click="Ausleihen_Button_Click"  Content="ausleihen" Margin="0,0,0,10"></Button>
-                <Button  x:Name="Zurückgeben_Button" Click="Zurückgeben_Button_Click" Content="zurückgeben"></Button>
+        <Grid Grid.Row="1" Grid.Column="1" Background="#F2F4F8" >
+            <StackPanel>
+                <Button x:Name="Ausleihen_Button"
+                Click="Ausleihen_Button_Click"
+                Content="Ausleihen"/>
+
+                <Button x:Name="Zurückgeben_Button"
+                Click="Zurückgeben_Button_Click"
+                Content="Zurückgeben"/>
             </StackPanel>
         </Grid>
-        
-        
+
+
 
         <!-- INHALT Datagrid Tabelle -->
         <Grid Grid.Row="1" Margin="10">
