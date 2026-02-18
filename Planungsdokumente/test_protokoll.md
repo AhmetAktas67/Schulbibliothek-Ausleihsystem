@@ -1,44 +1,27 @@
-Testfall T01 – Anmeldung als Bibliothekar
+# Testprotokoll – Schulbibliothek-Ausleihsystem
 
-ID: T01  
+## Test T01 – Anmeldung als Bibliothekar
 
-Beschreibung:
-Überprüfung, ob sich ein Bibliothekar erfolgreich anmelden kann und Zugriff auf Verwaltungsfunktionen erhält.
+**Datum:** 18.02.2026  
+**Tester:** Ahmet Aktas  
 
-Vorbedingungen: 
-- Das Programm ist gestartet  
-- Das Anmeldefenster wird angezeigt  
-- Ein Bibliothekar-Account existiert in der Datenbank  
+**Beobachtetes Resultat:**  
+Die Anmeldung mit korrekten Zugangsdaten war erfolgreich.
+Das Hauptfenster wurde geöffnet.
 
-Test-Schritte:  
-1. Im Feld „E-Mail“ wird die E-Mail eines Bibliothekars eingegeben.  
-2. Im Feld „Passwort“ wird das korrekte Passwort eingegeben.  
-3. Der Button „Anmelden“ wird gedrückt.  
-
-Erwartetes Resultat: 
-- Die Anmeldung ist erfolgreich.  
-- Das Hauptfenster wird geöffnet.  
-- Buttons zum Hinzufügen und Löschen von Büchern sind sichtbar.
+**Testergebnis:**  
+✅ Test bestanden
 
 ---
 
-Testfall T02 – Buch ausleihen (Schüler)
+## Test T02 – Buch ausleihen und Mahnung
 
-ID: T02  
+**Datum:** 18.02.2026  
+**Tester:** Ahmet Aktas  
 
-Beschreibung:  
-Überprüfung, ob ein Schüler ein verfügbares Buch ausleihen kann.
+**Beobachtetes Resultat:**  
+Das Buch wurde ausgeliehen und nach Ablauf der Leihfrist
+im Mahnungen-Fenster angezeigt.
 
-Vorbedingungen:  
-- Der Benutzer ist als Schüler eingeloggt  
-- Mindestens ein Buch ist verfügbar  
-- Das Hauptfenster ist geöffnet  
-
-Test-Schritte: 
-1. Ein verfügbares Buch wird in der Tabelle ausgewählt.  
-2. Der Button „Ausleihen“ wird gedrückt.  
-
-Erwartetes Resultat:  
-- Das Buch wird als „Ausgeliehen“ markiert.  
-- Ein Eintrag in der Ausleihtabelle wird erstellt.  
-- Das Buch erscheint in der Historie des Schülers.
+**Testergebnis:**  
+✅ Test bestanden
