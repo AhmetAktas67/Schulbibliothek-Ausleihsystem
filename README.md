@@ -1,5 +1,7 @@
 # Schulbibliothek – Ausleihsystem
 
+![Tests](https://github.com/AhmetAktas67/Schulbibliothek-Ausleihsystem/actions/workflows/dotnet-tests.yml/badge.svg)
+
 **Name:** Ahmet Aktas  
 
 ---
