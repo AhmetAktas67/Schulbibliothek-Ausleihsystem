@@ -5,24 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchulbibliothekWpf.Views"
         mc:Ignorable="d"
-        Title="BuchHinzufügen" Height="800" Width="450"
+        Title="BuchHinzufügen" 
+        
+        Height="700" Width="550"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        
+       
         
        >
 
 
     <Window.Resources>
 
+
+
+        <Style x:Key="TextBoxWithPlaceholder" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+
+                            <TextBlock Text="{TemplateBinding Tag}"
+                               Foreground="Gray"
+                               Margin="5,0,0,0"
+                               VerticalAlignment="Center"
+                               IsHitTestVisible="False"
+                               Visibility="Collapsed"
+                               x:Name="Placeholder"/>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="Placeholder"
+                                Property="Visibility"
+                                Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
         <Style TargetType="TextBlock">
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
 
         <Style TargetType="TextBox">
-            <Setter Property="Padding" Value="6"/>
+            
             <Setter Property="BorderBrush" Value="#CCCCCC"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Height" Value="26"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Gray"/>
+            
         </Style>
 
         <Style TargetType="Button">
@@ -44,19 +86,19 @@
     <Grid>
         <Border Background="White"
                 CornerRadius="10"
-                Padding="25"
-                Width="380"
-                Height="500"
+                Padding="5"
+                Width="400"
+               
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
 
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -71,27 +113,28 @@
                            FontWeight="Bold"
                            Grid.ColumnSpan="2"
                            HorizontalAlignment="Center"
-                           Margin="0,0,0,20"/>
+                           Margin="10,0,0,0"/>
 
                
-                <TextBlock Text="Titel:" Grid.Row="1"/>
-                <TextBox x:Name="TitelBox" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock  FontSize="18" Text="Titel:" Grid.Row="1"/>
+                <TextBox Style="{StaticResource TextBoxWithPlaceholder}" Tag="Titel eingeben ..."  Height="30"  x:Name="TitelBox" Grid.Row="1" Grid.Column="1"/>
 
-                <TextBlock Text="Autor:" Grid.Row="2"/>
-                <TextBox x:Name="AutorBox" Grid.Row="2" Grid.Column="1"/>
+                <TextBlock  FontSize="18" Text="Autor:" Grid.Row="2"/>
+                <TextBox Style="{StaticResource TextBoxWithPlaceholder}" Tag="Autor eingeben ..." Height="30" x:Name="AutorBox" Grid.Row="2" Grid.Column="1"/>
 
-                <TextBlock Text="ISBN:" Grid.Row="3"/>
-                <TextBox x:Name="IsbnBox" Grid.Row="3" Grid.Column="1"/>
+                <TextBlock FontSize="18" Text="ISBN:" Grid.Row="3"/>
+                <TextBox Style="{StaticResource TextBoxWithPlaceholder}" Tag="ISBN eingeben ..." Height="30" x:Name="IsbnBox" Grid.Row="3" Grid.Column="1"/>
 
-                <TextBlock Text="Erscheinungsjahr:" Grid.Row="4"/>
-                <TextBox x:Name="JahrBox" Grid.Row="4" Grid.Column="1"/>
+                <TextBlock FontSize="18" Text="Jahr" Grid.Row="4"/>
+                <TextBox Style="{StaticResource TextBoxWithPlaceholder}" Tag="Erscheinungsjahr eingeben ..." Height="30" x:Name="JahrBox" Grid.Row="4" Grid.Column="1"/>
 
                 
                 <Button Content="Bestätigen"
                         Click="Bestätigen_Click"
                         Grid.Row="5"
                         Grid.ColumnSpan="2"
-                        Margin="0,0,0,0"
+                        Height="60"
+                        Margin="0,120,0,0"
                         />
             </Grid>
 
