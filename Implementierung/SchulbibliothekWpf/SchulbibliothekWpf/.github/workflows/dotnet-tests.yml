@@ -1,12 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿name: .NET Unit Tests
 
-namespace SchulbibliothekWpf.github.workflows
-{
-    class dotnet_tests
-    {
-    }
-}
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repository auschecken
+      uses: actions/checkout@v4
+
+    - name: .NET installieren
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '7.0.x'
+
+    - name: Abhängigkeiten wiederherstellen
+      run: dotnet restore
+
+    - name: Projekt bauen
+      run: dotnet build --no-restore
+
+    - name: Unittests ausführen
+      run: dotnet test --no-build --verbosity normal
