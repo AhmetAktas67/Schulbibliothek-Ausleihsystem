@@ -18,10 +18,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore Implementierung/SchulbibliothekWpf.sln
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore Implementierung/SchulbibliothekWpf.sln
 
       - name: Test
-        run: dotnet test --no-build
+        run: dotnet test --no-build Implementierung/SchulbibliothekWpf.sln
