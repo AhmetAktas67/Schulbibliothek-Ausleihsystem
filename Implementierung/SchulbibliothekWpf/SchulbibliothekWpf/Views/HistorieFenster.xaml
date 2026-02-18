@@ -90,8 +90,8 @@
 
 
 
-                <TextBox Height="20" Width="150" Grid.Row="1" x:Name="SucheTextbox"></TextBox>
-                <Button Margin="0,0,0,0"   x:Name="Button_Suche" Click="Button_Suche_Click"  Content="Suchen"  ></Button>
+                <TextBox Height="25" Width="150" Grid.Row="1" x:Name="SucheTextbox"></TextBox>
+                <Button  x:Name="Button_Suche" Click="Button_Suche_Click"  Content="Suchen"  ></Button>
 
 
             </StackPanel>
