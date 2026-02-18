@@ -62,6 +62,60 @@ Im Hauptfenster werden alle Bücher in einer **Tabelle (DataGrid)** angezeigt.
 ![Historie](Dokumentation/HistorieFenster.png)
 
 ---
+### 4️⃣ Buch hinzufügen (Bibliothekar)
+
+Bibliothekare können über das Hauptfenster neue Bücher zum Bestand hinzufügen.
+
+Öffnen des **Buch-hinzufügen-Fensters** über den Button **„Buch +“**
+
+Eingabe von:
+
+Titel
+
+Autor
+
+ISBN
+
+Erscheinungsjahr
+
+Nach Bestätigung wird das Buch in der Datenbank gespeichert
+
+Die Buchliste im Hauptfenster wird automatisch aktualisiert
+
+📸 **Screenshot: Buch hinzufügen**
+
+![Buch hinzufügen](Dokumentation/BuchHinzufuegenFenster.png)
+
+### 5️⃣ Mahnungen (Bibliothekar)
+
+Überfällige Ausleihen werden automatisch erkannt und im **Mahnungsfenster**
+angezeigt.
+
+Ein Buch gilt als **überfällig**, wenn die Leihfrist überschritten ist
+
+Die Anzahl der Tage im Verzug wird berechnet und angezeigt
+
+Das Mahnungsfenster listet:
+
+Buch
+
+Benutzer
+
+Ausleihdatum
+
+Tage im Verzug
+
+🔔 **Visuelle Hervorhebung**
+
+Existieren Mahnungen, erscheint der **„Mahnungen“-Button**
+
+Der Button ist rot und besitzt einen **Blink-Effekt**
+
+Gibt es keine Mahnungen, ist der Button **nicht sichtbar**
+
+📸 **Screenshot: Mahnungen-Fenster**
+
+![Mahnungen](Dokumentation/MahnungFenster.png)
 
 ## 🎥 Screencast (Video)
 
