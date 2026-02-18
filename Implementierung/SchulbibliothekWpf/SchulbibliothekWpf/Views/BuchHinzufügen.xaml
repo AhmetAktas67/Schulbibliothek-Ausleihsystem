@@ -20,20 +20,32 @@
 
 
 
-        <Style x:Key="TextBoxWithPlaceholder" TargetType="TextBox">
+        <Style x:Key="TextBoxWithPlaceholder"
+       TargetType="TextBox"
+       BasedOn="{StaticResource {x:Type TextBox}}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
                         <Grid>
-                            <ScrollViewer x:Name="PART_ContentHost"/>
+                            <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="3">
 
-                            <TextBlock Text="{TemplateBinding Tag}"
-                               Foreground="Gray"
-                               Margin="5,0,0,0"
-                               VerticalAlignment="Center"
-                               IsHitTestVisible="False"
-                               Visibility="Collapsed"
-                               x:Name="Placeholder"/>
+                                <Grid>
+                                    <ScrollViewer x:Name="PART_ContentHost"
+                                          Margin="{TemplateBinding Padding}"/>
+
+                                    <TextBlock x:Name="Placeholder"
+                                       Text="{TemplateBinding Tag}"
+                                       Foreground="Gray"
+                                       Margin="{TemplateBinding Padding}"
+                                       VerticalAlignment="Center"
+                                       IsHitTestVisible="False"
+                                       Visibility="Collapsed"/>
+                                </Grid>
+                            </Border>
                         </Grid>
 
                         <ControlTemplate.Triggers>
@@ -58,12 +70,13 @@
         </Style>
 
         <Style TargetType="TextBox">
-            
+            <Setter Property="Background" Value="#F2F2F2"/>
             <Setter Property="BorderBrush" Value="#CCCCCC"/>
             <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="4,0"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Background" Value="Gray"/>
+           
             
         </Style>
 
@@ -117,7 +130,7 @@
 
                
                 <TextBlock  FontSize="18" Text="Titel:" Grid.Row="1"/>
-                <TextBox Style="{StaticResource TextBoxWithPlaceholder}" Tag="Titel eingeben ..."  Height="30"  x:Name="TitelBox" Grid.Row="1" Grid.Column="1"/>
+                <TextBox  Style="{StaticResource TextBoxWithPlaceholder}" Tag="Titel eingeben ..."  Height="30"  x:Name="TitelBox" Grid.Row="1" Grid.Column="1"/>
 
                 <TextBlock  FontSize="18" Text="Autor:" Grid.Row="2"/>
                 <TextBox Style="{StaticResource TextBoxWithPlaceholder}" Tag="Autor eingeben ..." Height="30" x:Name="AutorBox" Grid.Row="2" Grid.Column="1"/>
