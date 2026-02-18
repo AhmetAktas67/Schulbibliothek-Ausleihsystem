@@ -166,16 +166,16 @@ namespace SchulbibliothekWpf
                     
                     buch.IstAusgeliehen = true;
 
-                    /*
+                    
                     db.Ausleihen.Add(new Ausleihe
                     {
                         BuchID =buch.BuchID,
                         BenutzerID= aktuellerBenutzer.BenutzerID,
                         DatumAusleihe =DateTime.Now,
                     });
-                    */
+                    
 
-                    // Mahnung Test
+                    /* Mahnung Test
                    
                     db.Ausleihen.Add(new Ausleihe
                     {
@@ -183,7 +183,7 @@ namespace SchulbibliothekWpf
                         BenutzerID = 1, 
                         DatumAusleihe = DateTime.Now.AddDays(-20) 
                     });
-                   
+                   */
 
                     db.SaveChanges();
                     PruefeMahnungen();
