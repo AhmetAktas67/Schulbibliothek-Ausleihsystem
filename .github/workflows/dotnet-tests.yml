@@ -18,10 +18,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore
-        run: dotnet restore Implementierung/SchulbibliothekWpf.sln
+      run: dotnet restore Implementierung/SchulbibliothekWpf/SchulbibliothekWpf.sln
 
-      - name: Build
-        run: dotnet build --no-restore Implementierung/SchulbibliothekWpf.sln
+    - name: Build
+      run: dotnet build Implementierung/SchulbibliothekWpf/SchulbibliothekWpf.sln --no-restore
 
-      - name: Test
-        run: dotnet test --no-build Implementierung/SchulbibliothekWpf.sln
+    - name: Test
+      run: dotnet test Implementierung/SchulbibliothekWpf/SchulbibliothekWpf.sln --no-build --verbosity normal
