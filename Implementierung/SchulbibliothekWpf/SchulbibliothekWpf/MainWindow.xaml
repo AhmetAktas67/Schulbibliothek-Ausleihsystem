@@ -64,23 +64,44 @@
             <DockPanel Grid.Row="0">
 
                 <Label Content="📚 Schulbibliothek"
-               FontSize="22"
-               FontWeight="Bold"
-               DockPanel.Dock="Left"/>
+           FontSize="22"
+           FontWeight="Bold"
+           DockPanel.Dock="Left"/>
 
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+
                     <Button x:Name="HistorieButton"
-                    Click="HistorieButton_Click"
-                    Content="Historie"/>
+                Click="HistorieButton_Click"
+                Content="Historie"/>
 
                     <Button x:Name="MahnungenButton"
-                    Click="MahnungenButton_Click"
-                    Content="Mahnungen"
-                    Visibility="Collapsed"/>
+                Content="Mahnungen"
+                Background="Red"
+                Foreground="White"
+                Click="MahnungenButton_Click"
+                Opacity="1">
+
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                From="1"
+                                To="0.3"
+                                Duration="0:0:0.5"
+                                AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+
+                    </Button>
 
                     <Button x:Name="LogoutButton"
-                    Click="LogoutButton_Click"
-                    Content="Ausloggen"/>
+                Click="LogoutButton_Click"
+                Content="Ausloggen"/>
+
                 </StackPanel>
             </DockPanel>
 

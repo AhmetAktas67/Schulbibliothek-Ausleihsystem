@@ -21,14 +21,14 @@
                             Width="*"/>
 
                 <DataGridTextColumn Header="Benutzer"
-                            Binding="{Binding Benutzer.Vorname}"
+                            Binding="{Binding Nutzername}"
                             Width="150"/>
 
                 <DataGridTextColumn Header="Ausgeliehen am"
                             Binding="{Binding DatumAusleihe}"
                             Width="150"/>
 
-                <DataGridTextColumn Header="Rückgabe"
+                <DataGridTextColumn Header="Rückgabe in Verzug seit"
                             Binding="{Binding TageImVerzug}"
                             Width="150"/>
 

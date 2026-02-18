@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchulbibliothekWpf.Views"
         mc:Ignorable="d"
-        Title="HistorieFenster" Height="450" Width="1000">
+        Title="HistorieFenster" Height="450" Width="1200">
 
 
 
@@ -91,7 +91,7 @@
 
 
                 <TextBox Height="20" Width="150" Grid.Row="1" x:Name="SucheTextbox"></TextBox>
-                <Button Margin="10,0,0,0" Height="20" Width="120" x:Name="Button_Suche" Click="Button_Suche_Click"  Content="Suchen"  ></Button>
+                <Button Margin="0,0,0,0"   x:Name="Button_Suche" Click="Button_Suche_Click"  Content="Suchen"  ></Button>
 
 
             </StackPanel>

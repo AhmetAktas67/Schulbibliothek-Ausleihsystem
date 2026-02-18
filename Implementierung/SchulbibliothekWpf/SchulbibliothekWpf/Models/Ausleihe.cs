@@ -42,5 +42,15 @@ namespace SchulbibliothekWpf.Models
                 return tage > 0 ? tage : 0;
             }
         }
+
+        public string TageImVerzugText
+        {
+            get
+            {
+                return TageImVerzug == 1
+                    ? "1 Tag"
+                    : $"{TageImVerzug} Tage";
+            }
+        }
     }
 }
