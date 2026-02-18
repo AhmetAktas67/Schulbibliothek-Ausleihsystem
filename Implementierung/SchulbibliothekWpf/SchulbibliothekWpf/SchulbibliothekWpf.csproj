@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.20" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\workflows\dotnet-tests.yml" />
+  </ItemGroup>
+
 </Project>
