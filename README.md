@@ -41,7 +41,8 @@ Mögliche Funktionen:
 - (Bibliothekar) Mahnungen einsehen
 
 📸 **Screenshot: Hauptfenster**  
-![Hauptfenster](Dokumentation/hauptfenster.png)
+![Hauptfenster](Dokumentation/HauptFenster-Schueler und Lehrer (1).png)
+![Hauptfenster](Dokumentation/Bibliothekar.png)
 
 ---
 
@@ -51,6 +52,7 @@ Mögliche Funktionen:
 - Überfällige Bücher werden erkannt und als Mahnung angezeigt.
 
 ---
+
 
 ## 🎥 Screencast (Video)
 
