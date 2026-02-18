@@ -84,7 +84,7 @@ Die Buchliste im Hauptfenster wird automatisch aktualisiert
 
 📸 **Screenshot: Buch hinzufügen**
 
-![Buch hinzufügen](Dokumentation/BuchHinzufuegenFenster.png)
+![Buch hinzufügen](Dokumentation/BuchHinzufügenFenster.png)
 
 ### 5️⃣ Mahnungen (Bibliothekar)
 
