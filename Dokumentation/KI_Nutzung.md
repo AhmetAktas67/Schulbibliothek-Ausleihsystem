@@ -95,5 +95,86 @@ Durch die Nutzung verschiedener KI-Tools habe ich gelernt:
 Die Arbeit mit KI hat meine Planung und Strukturierung verbessert und mich gelehrt, wie man diese Tools verantwortungsvoll einsetzt.
 
 ---
+## Ergänzende KI-Nutzung (Dokumentation & Datenbankanpassung)
+
+Datum der Ergänzung: 19.02.2026
+
+Zusätzlich zu den bereits genannten Einsatzgebieten wurde KI auch unterstützend
+bei folgenden Punkten genutzt:
+
+## Debugging und Problemlösung
+
+Die KI wurde außerdem zur Unterstützung beim Debugging eingesetzt.
+Dabei wurden Fehlermeldungen (z. B. aus Visual Studio, Entity Framework oder GitHub Actions)
+analysiert und erklärt.
+
+Die KI half insbesondere bei:
+- dem Verständnis von Compiler- und Laufzeitfehlern
+- der Erklärung von Entity-Framework-Fehlern (z. B. fehlende Spalten, Migrationsprobleme)
+- Problemen mit Git, Branches, Merges und GitHub Actions
+- der Erklärung von WPF-Bindings und DataGrid-Anzeigeproblemen
+
+Die eigentlichen Fehlerbehebungen und Code-Anpassungen
+wurden anschließend eigenständig umgesetzt.
+
+### Anpassung der Datenbank (SQL → SQLite)
+
+Zu Beginn des Projekts lag eine SQL-Datenbankstruktur vor, die ursprünglich
+für ein klassisches SQL-Server-System gedacht war.  
+Die KI wurde genutzt, um:
+
+- die bestehende SQL-Struktur zu analysieren
+- Vorschläge zur Anpassung an SQLite zu erhalten
+- typische Unterschiede zwischen SQL Server und SQLite zu verstehen
+  (z. B. Datentypen, AUTOINCREMENT, Einschränkungen)
+
+Die finale SQLite-Datenbankstruktur wurde anschließend selbst umgesetzt
+und an das Projekt angepasst.
+
+### Unterstützung bei Code-Stil & Struktur
+
+Die KI wurde außerdem genutzt, um:
+- Rückfragen zu sauberem C#-Code-Stil zu stellen
+- bessere Namensgebung für Variablen und Methoden zu finden
+- Hinweise zu übersichtlicher Struktur in ViewModels, Views und Datenklassen zu erhalten
+
+Dabei wurden keine kompletten Lösungen blind übernommen,
+sondern Vorschläge geprüft, angepasst oder bewusst vereinfacht.
+
+### Unterstützung bei textbasierten Aufgaben (README, Tests, Dokumentation)
+
+Die KI wurde auch bei der Bearbeitung von textbasierten Aufgaben eingesetzt,
+z. B. bei:
+
+- README.md
+- Testfallbeschreibungen
+- Testprotokollen
+- dieser KI-Dokumentation
+
+Ich habe jeweils selbst festgelegt:
+- welche Inhalte beschrieben werden müssen
+- welche Funktionen des Programms relevant sind
+- welche Abweichungen vom Prototyp dokumentiert werden sollen
+
+Die KI lieferte daraufhin:
+- Strukturvorschläge
+- Gliederungen
+- sprachliche Formulierungen
+
+Die Inhalte basieren auf meiner eigenen Projektarbeit
+und wurden von mir überprüft, angepasst und ergänzt.
+
+### Reflexion (Erweiterung)
+
+Durch diese zusätzliche Nutzung der KI habe ich gelernt,
+dass KI besonders hilfreich ist bei:
+- Strukturierung von Texten
+- Umformulieren technischer Inhalte
+- Nachfragen zu bestehenden Lösungen
+
+Gleichzeitig wurde deutlich,
+dass KI kein Ersatz für eigene Umsetzung ist,
+sondern ein Werkzeug zur Unterstützung.
 
 Ende der KI-Dokumentation
+
