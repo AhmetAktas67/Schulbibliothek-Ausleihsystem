@@ -114,7 +114,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="SucheTextbox" Width="180"/>
-                    <Button x:Name="Button_Suche"
+                    <Button Height="30" x:Name="Button_Suche"
                     Click="Suchen_Click"
                     Content="Suchen"/>
                 </StackPanel>
