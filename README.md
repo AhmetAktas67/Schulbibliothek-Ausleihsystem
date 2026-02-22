@@ -124,7 +124,7 @@ Gibt es keine Mahnungen, ist der Button **nicht sichtbar**
 Ein Screencast zur Demonstration der Programmnutzung befindet sich im Ordner  
 **Dokumentation** und ist in der README verlinkt.
 
-➡️ **[Screencast herunterladen](Dokumentation/screencast.mp4)**
+[![Screencast Vorschau](Dokumentation/HauptFenster-Bibliothekar.png)](./Dokumentation/Screencast.mp4)
 
 **Inhalt des Videos:**
 - Anmeldung
