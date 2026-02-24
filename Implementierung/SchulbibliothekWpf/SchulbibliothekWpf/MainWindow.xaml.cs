@@ -174,6 +174,16 @@ namespace SchulbibliothekWpf
                         DatumAusleihe =DateTime.Now,
                     });
                     
+                    //MahnungTest2
+                    /*
+                    db.Ausleihen.Add(new Ausleihe
+                    {
+                        BuchID = buch.BuchID,
+                        BenutzerID = aktuellerBenutzer.BenutzerID,
+                        DatumAusleihe = DateTime.Now.AddDays(-20),
+                        DatumRueckgabe = null
+                    });
+                    */
 
                     /* Mahnung Test
                    
@@ -218,14 +228,23 @@ namespace SchulbibliothekWpf
 
                 if (buch != null)
                 {
-                    buch.IstAusgeliehen = false;
+                    
 
                     var ausleihe = db.Ausleihen
                    .Where(a => a.BuchID == buch.BuchID && a.DatumRueckgabe == null)
                    .FirstOrDefault();
 
-                    if (LoginFenster.AktuellerBenutzer.Rolle == "Schüler" || LoginFenster.AktuellerBenutzer.Rolle=="Lehrer" &&
-                        ausleihe.BenutzerID != LoginFenster.AktuellerBenutzer.BenutzerID)
+                    if (ausleihe == null)
+                    {
+                        MessageBox.Show("Keine aktive Ausleihe gefunden.");
+                        return;
+                    }
+
+                    if (
+                     (LoginFenster.AktuellerBenutzer.Rolle == "Schüler"
+                      || LoginFenster.AktuellerBenutzer.Rolle == "Lehrer")
+                      && ausleihe.BenutzerID != LoginFenster.AktuellerBenutzer.BenutzerID
+ )
                     {
                         MessageBox.Show("Sie dürfen nur Ihre eigenen ausgeliehenen Bücher zurückgeben.");
                         return;
@@ -234,6 +253,7 @@ namespace SchulbibliothekWpf
                     if (ausleihe != null)
                     {
                         ausleihe.DatumRueckgabe = DateTime.Now;
+                        buch.IstAusgeliehen = false;
                     }
 
 
