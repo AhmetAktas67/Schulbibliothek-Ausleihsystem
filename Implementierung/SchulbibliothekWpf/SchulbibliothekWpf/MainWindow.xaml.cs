@@ -172,28 +172,15 @@ namespace SchulbibliothekWpf
                         BuchID =buch.BuchID,
                         BenutzerID= aktuellerBenutzer.BenutzerID,
                         DatumAusleihe =DateTime.Now,
+                        
+                       
                     });
-                    
-                    //MahnungTest2
-                    /*
-                    db.Ausleihen.Add(new Ausleihe
-                    {
-                        BuchID = buch.BuchID,
-                        BenutzerID = aktuellerBenutzer.BenutzerID,
-                        DatumAusleihe = DateTime.Now.AddDays(-20),
-                        DatumRueckgabe = null
-                    });
-                    */
 
-                    /* Mahnung Test
-                   
-                    db.Ausleihen.Add(new Ausleihe
-                    {
-                        BuchID = buch.BuchID,
-                        BenutzerID = 1, 
-                        DatumAusleihe = DateTime.Now.AddDays(-20) 
-                    });
-                   */
+                    //Für Test MahnungsButton
+                    //DatumAusleihe = DateTime.Now.AddDays(-20),
+
+
+
 
                     db.SaveChanges();
                     PruefeMahnungen();
@@ -239,7 +226,10 @@ namespace SchulbibliothekWpf
                         return;
                     }
 
-                    if (ausleihe.BenutzerID != aktueller.BenutzerID)
+
+
+                    if ((aktueller.Rolle == "Schüler" || aktueller.Rolle == "Lehrer")
+                          && ausleihe.BenutzerID != aktueller.BenutzerID)
                     {
                         MessageBox.Show("Sie dürfen nur Ihre eigenen ausgeliehenen Bücher zurückgeben.");
                         return;
