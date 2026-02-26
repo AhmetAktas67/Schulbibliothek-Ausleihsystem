@@ -228,11 +228,10 @@ namespace SchulbibliothekWpf
 
                 if (buch != null)
                 {
-                    
+                    var aktueller = LoginFenster.AktuellerBenutzer;
 
                     var ausleihe = db.Ausleihen
-                   .Where(a => a.BuchID == buch.BuchID && a.DatumRueckgabe == null)
-                   .FirstOrDefault();
+                    .FirstOrDefault(a => a.BuchID == buch.BuchID && a.DatumRueckgabe == null);
 
                     if (ausleihe == null)
                     {
@@ -240,11 +239,7 @@ namespace SchulbibliothekWpf
                         return;
                     }
 
-                    if (
-                     (LoginFenster.AktuellerBenutzer.Rolle == "Schüler"
-                      || LoginFenster.AktuellerBenutzer.Rolle == "Lehrer")
-                      && ausleihe.BenutzerID != LoginFenster.AktuellerBenutzer.BenutzerID
- )
+                    if (ausleihe.BenutzerID != aktueller.BenutzerID)
                     {
                         MessageBox.Show("Sie dürfen nur Ihre eigenen ausgeliehenen Bücher zurückgeben.");
                         return;
